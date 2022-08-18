@@ -15,13 +15,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-//    publishing {
-//        multipleVariants {
-//            withSourcesJar()
-//            withJavadocJar()
-//            allVariants()
-//        }
-//    }
+    publishing {
+        multipleVariants {
+            withSourcesJar()
+            withJavadocJar()
+            allVariants()
+        }
+    }
 
     buildTypes {
         release {
