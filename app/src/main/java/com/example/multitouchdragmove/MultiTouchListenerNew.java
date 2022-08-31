@@ -1,4 +1,5 @@
 package com.example.multitouchdragmove;
+
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.View.OnTouchListener;
 
 public class MultiTouchListenerNew implements OnTouchListener {
 
+    TouchCallback touchCallback;
     public boolean isEnable = false;
 
     private class ScaleGestureListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
@@ -64,7 +66,8 @@ public class MultiTouchListenerNew implements OnTouchListener {
     public float minimumScale = 0.5f;
     public float maximumScale = 10.0f;
 
-    public MultiTouchListenerNew() {
+    public MultiTouchListenerNew(TouchCallback touchCallback) {
+        this.touchCallback = touchCallback;
         mScaleGestureDetector = new ScaleGestureDetector(new ScaleGestureListener());
     }
 
@@ -90,19 +93,6 @@ public class MultiTouchListenerNew implements OnTouchListener {
             }
 
             case MotionEvent.ACTION_MOVE: {
-//                // Find the index of the active pointer and fetch its position.
-//                Log.e("asdfasdf","ACTION_MOVE");
-//                int pointerIndex = event.findPointerIndex(mActivePointerId);
-//                if (pointerIndex != -1) {
-//                    float currX = event.getX(pointerIndex);
-//                    float currY = event.getY(pointerIndex);
-//
-//                    // Only move if the ScaleGestureDetector isn't processing a
-//                    // gesture.
-//                    if (!mScaleGestureDetector.isInProgress()) {
-//                        adjustTranslation(view, currX - mPrevX, currY - mPrevY);
-//                    }
-//                }
 
                 break;
             }
@@ -137,17 +127,11 @@ public class MultiTouchListenerNew implements OnTouchListener {
             case  MotionEvent.ACTION_POINTER_DOWN: {
                 Log.e("asdfasdf","ACTION_DOWN");
                 isEnable = false;
-//                photoEditor.resetList();
+                touchCallback.onResetList();
                 break;
             }
         }
-
-//        if (isEnable && photoEditor.listView!=null){
-//            Log.d("status","view scale:"+v.getScaleX()+",getX:"+event.getX()+",getY:"+event.getY()+",m getScaleX:"+
-//                    event.getX()*v.getScaleX()+",m getScaleY:"+event.getY()*v.getScaleY());
-//            event.setLocation(event.getX()*view.getScaleX(),event.getY()*view.getScaleY());
-//            photoEditor.listView.onCustomTouchEvent(event);
-//        }
+        touchCallback.onUpdateList(isEnable,view,event);
 
         return true;
     }
