@@ -1,4 +1,4 @@
-package com.example.multitouchdragmove;
+package com.smarthub.retrofit;
 
 import org.junit.Test;
 

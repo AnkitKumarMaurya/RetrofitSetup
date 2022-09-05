@@ -1,4 +1,4 @@
-package com.example.multitouchdragmove;
+package com.smarthub.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class RetroSampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,16 +15,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView imageView = findViewById(R.id.my_image);
-        imageView.setOnTouchListener(new MultiTouchListenerNew(new TouchCallback() {
-            @Override
-            public void onResetList() {
-
-            }
-
-            @Override
-            public void onUpdateList(boolean isEnable, View view, MotionEvent event) {
-
-            }
-        }));
     }
 }

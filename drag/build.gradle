@@ -59,7 +59,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId 'com.smarthub'
-                artifactId = 'SNAPSHOT-ID'
+                artifactId = 'retrofit'
                 version = '1.0'
             }
         }

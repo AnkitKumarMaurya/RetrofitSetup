@@ -1,4 +1,4 @@
-package com.example.multitouchdragmove;
+package com.smarthub.retrofit;
 
 import android.content.Context;
 

@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "MultiTouchDragMove"
+rootProject.name = "RetrofitSetup"
 include ':drag'
